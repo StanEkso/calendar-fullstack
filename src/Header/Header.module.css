@@ -1,0 +1,70 @@
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+}
+.block {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid black;
+    margin-bottom: 1rem;
+}
+.avatar {
+    height: 2rem;
+    width: 2rem;
+    background: #000;
+    display: block;
+    border-radius: 50%;
+}
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+.menu {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.menu::after, .menu::before {
+    content: '';
+    height: 2px;
+    width: 2rem;
+    margin: 0.25rem 0;
+    background: #000;
+}
+.dropdown {
+    position: absolute;
+    right: 0;
+    width: 200px;
+    border-radius: 0.5rem;
+    border: 1px solid black;
+    background: #fff;
+    padding: 0.5rem 1rem;
+}
+.dropdown ul {
+    list-style: none;
+}
+.dropdown a {
+    color: #000;
+    text-decoration: none;
+}
+.dropdown ul li {
+    margin: 0.5rem 0;
+}
+.dropdown ul li:last-child {
+    padding-top: 0.25rem;
+    border-top: 1px solid black;
+}
+.login {
+    border: none;
+    outline: none;
+    background: rgb(0, 67, 182);
+    padding: 0.5rem 1rem;
+    color: #fff;
+    border-radius: 0.5rem;
+}
+.login a {
+    color: #fff;
+    text-decoration: none;
+}

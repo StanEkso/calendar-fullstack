@@ -1,0 +1,26 @@
+.main {
+    display: grid;
+}
+.container h3{
+    text-align: center;
+    font-size: 1.5em;
+}
+.main input {
+    outline: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    margin: 0.5rem 0;
+    font-size: 1.2em
+}
+.log {
+    outline: none;
+    border: none;
+    background: rgb(0, 67, 182);
+    padding: 0.5rem 3rem;
+    color: #fff;
+    border-radius: 0.5rem;
+    display: block;
+    max-width: 200px;
+    margin: 0 auto;
+    font-size: 1.3em;
+}

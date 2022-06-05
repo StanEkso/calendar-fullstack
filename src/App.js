@@ -1,24 +1,33 @@
 import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
-
+import Login from './LogModule/Login';
+import Register from './LogModule/Register';
+import Modal from './Modal/Modal';
+import { useAuth } from './hooks/auth.hook';
+import { AuthContext } from './context/AuthContext';
+import {Routes, Route} from 'react-router-dom'
+import Header from './Header/Header';
+import Home from './Home/Home';
+import Admin from './AdminPanel/Admin';
 function App() {
+  const {token, login, logout, userId} = useAuth();
+  const isAuthenticated = !!token;
+  const [modal, setModal] = useState({active: false})
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <AuthContext.Provider value={{
+      token, login, logout, userId, isAuthenticated
+    }}>
+    <Modal modal={modal}/>
+    <Header/>
+    <div className="app-wrapper">
+    <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/login" element={<Login setModal={setModal}/>}/>
+      <Route path="/admin" element={<Admin setModal={setModal}/>}/>
+    </Routes>
     </div>
+    </AuthContext.Provider>
   );
 }
 
