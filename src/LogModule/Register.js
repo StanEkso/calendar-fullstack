@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHttp } from "../hooks/http.hook";
 import styles from './Log.module.css'
-import { hostname_dev, hostname_prod} from "../configs/host"
+import { baseUrl } from "../configs/config";
 function Register({setModal}) {
     const {request} = useHttp()
     const [form, setForm] = useState(
@@ -12,7 +12,7 @@ function Register({setModal}) {
     }
     const registerHandler = async () => {
         try {
-            const data = await request(`${hostname_prod}/auth/signup`, 'POST', {...form});
+            const data = await request(`${baseUrl}/auth/signup`, 'POST', {...form});
             if (data.message) setModal({active: true, text: data.message, setActive: () => setModal({active: false})})
         } catch (error) {
             

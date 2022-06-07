@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { useHttp } from "../hooks/http.hook";
 import styles from './Log.module.css'
-import { hostname_dev, hostname_prod} from "../configs/host"
+import { baseUrl } from "../configs/config";
 function Login({ setModal }) {
     const auth = useContext(AuthContext);
     const navigate = useNavigate()
@@ -16,7 +16,7 @@ function Login({ setModal }) {
     }
     const loginHandler = async () => {
         try {
-            const data = await request(`${hostname_prod}/auth/login`, 'post', {...form});
+            const data = await request(`${baseUrl}/auth/login`, 'post', {...form});
             if (data.message) return setModal({active: true, text: data.message, setActive: () => setModal({active: false})})
             auth.login(data.token, data.id)
             navigate('/')

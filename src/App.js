@@ -1,8 +1,6 @@
-import logo from './logo.svg';
 import { useState } from 'react';
 import './App.css';
 import Login from './LogModule/Login';
-import Register from './LogModule/Register';
 import Modal from './Modal/Modal';
 import { useAuth } from './hooks/auth.hook';
 import { AuthContext } from './context/AuthContext';

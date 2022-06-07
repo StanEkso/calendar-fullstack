@@ -1,24 +1,24 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import styles from "./Home.module.css";
-import formstyle from '../AdminPanel/Admin.module.css';
 import { useHttp } from "../hooks/http.hook";
-import { hostname_dev, hostname_prod} from "../configs/host"
+import { baseUrl } from "../configs/config";
+import EditForm from "../AdminPanel/EditForm";
+import { AuthContext } from "../context/AuthContext";
+import lastTime from "../functions/lastTime";
+import stringFromDate from "../functions/stringFromDate";
 function Card({ id, date, title, admin = false}) {
+    const auth = useContext(AuthContext);
     const {request} = useHttp();
     const postDeleteHandler = async (id) => {
-        const post = await request(`${hostname_prod}/posts/${id}`, "DELETE");
+        const post = await request(`${baseUrl}/posts/${id}`, "DELETE", {
+            'Authorization': `Bearer ${auth.token}`
+        });
     }
+    const [state, setState] = useState(false);
     date = new Date(Number(date));
     const nowdata = new Date();
-    const months = [
-        '','января', 'февраля','марта','мая','июня','июля','августа','сентября','октрября','ноября','декабря'
-    ]
-    let time = ''
-    if (date.getHours() > 10) time+=date.getHours();
-    else time+='0' + date.getHours();
-    time+=':';
-    time+=date.getMinutes() > 10 ? date.getMinutes() : '0' + date.getMinutes()
-    const datestring = date.getDate() + ' ' + months[date.getMonth()] + ", " + date.getFullYear()
+    const {time, datestring} = stringFromDate(date);
+    let difst = lastTime(date-nowdata);
     return (
         <div className={styles.card}>
             {date < nowdata && <p className={styles.expired}>НЕ АКТУАЛЬНО</p>}
@@ -27,9 +27,13 @@ function Card({ id, date, title, admin = false}) {
                 {time}
             </p>
             <p>{datestring}</p>
+            {!!difst > 0 && <p>Осталось {difst}</p>}
             {admin && <div className={styles.editing}>
                 <button className={styles.remove} onClick={() => postDeleteHandler(id)}>Удалить</button>
+                <button className={styles.edit} onClick={() => setState(true)}>Изменить</button>
+                <EditForm state={state} setState={setState} title={title} date={date} id={id}/>
                 </div>}
+            
         </div>
     )
 }

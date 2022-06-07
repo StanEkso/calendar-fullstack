@@ -1,28 +1,25 @@
-import React, { useContext, useState } from "react";
+import React, { useState, useContext } from "react";
 import { useHttp } from "../hooks/http.hook";
 import styles from "./Admin.module.css"
 import { baseUrl } from "../configs/config";
 import { AuthContext } from "../context/AuthContext";
-function AppendForm({ setModal }) {
+function EditForm({title, date, state, setState, id}) {
     const auth = useContext(AuthContext)
     const {request} = useHttp();
-    const [state, setState] = useState(false);
-    const [form, setForm] = useState({title: '', date: Date.now()})
+    const [form, setForm] = useState({title: title, date: date})
     const appendHandler = async () => {
         try {
-            const data = await request(`${baseUrl}/posts/create`, 'post', {...form}, {
-                'Authorization': `Bearer ${auth.token}`
-            });
-            setState(false);
+                const post = await request(`${baseUrl}/posts/`, "PUT", {...form, id: id}, {
+                    'Authorization': `Bearer ${auth.token}`
+                });
+                setState(false)
         } catch (error) {
-            setModal({active: true, text: "You isn't authenicated", setActive: () => setModal({active: false})})
-            auth.logout();
-            setState(false);
+            setState(false)
+            
         }
     }
     return (
         <div className={styles.form}>
-            <button onClick={() => setState(true)}>Создать событие</button>
             {state && <div className={styles.overlay}>
                 <div className={styles.append}>
                     <button onClick={() => setState(false)}>Закрыть</button>
@@ -30,12 +27,13 @@ function AppendForm({ setModal }) {
                     <input type="text" placeholder="Название"
                         name="title"
                         onChange={(event) => setForm({...form, [event.target.name]: event.target.value})}
+                        value={form.title}
                     />
                       <label htmlFor="date">Дата</label>
                     <input name="date" type="datetime-local" 
                         onInput={(event) => setForm({...form, [event.target.name]: new Date(event.target.value) / 1})}
                     />
-                    <button onClick={appendHandler}>Добавить</button>
+                    <button onClick={(appendHandler)}>Сохранить</button>
                 </div>
             </div>}
         </div>
@@ -43,4 +41,4 @@ function AppendForm({ setModal }) {
     )
 }
 
-export default AppendForm;
+export default EditForm;

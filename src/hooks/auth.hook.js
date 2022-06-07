@@ -1,7 +1,8 @@
 import { useState, useCallback, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
 export const useAuth = () => {
-    
+    const navigate = useNavigate();
     const [token, setToken] = useState(null)
     const [userId, setUserId] = useState(null)
 
@@ -14,7 +15,8 @@ export const useAuth = () => {
     const logout = useCallback(() =>{
         setToken(null)
         setUserId(null)
-        localStorage.removeItem('user-token')
+        localStorage.removeItem('user-token');
+        navigate('/');
     }, [])
     
     useEffect(() =>{
