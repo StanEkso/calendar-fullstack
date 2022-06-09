@@ -10,9 +10,14 @@ function Card({ id, date, title, admin = false}) {
     const auth = useContext(AuthContext);
     const {request} = useHttp();
     const postDeleteHandler = async (id) => {
-        const post = await request(`${baseUrl}/posts/${id}`, "DELETE", {
-            'Authorization': `Bearer ${auth.token}`
-        });
+        try {
+            const post = await request(`${baseUrl}/posts/${id}`, "DELETE",null, {
+                'Authorization': `Bearer ${auth.token}`
+            });
+        } catch (error) {
+            auth.logout();
+            setState(false);
+        }
     }
     const [state, setState] = useState(false);
     date = new Date(Number(date));

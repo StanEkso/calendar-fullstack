@@ -3,19 +3,20 @@ import { useHttp } from "../hooks/http.hook";
 import styles from "./Admin.module.css"
 import { baseUrl } from "../configs/config";
 import { AuthContext } from "../context/AuthContext";
-function EditForm({title, date, state, setState, id}) {
+function EditForm({ title, date, state, setState, id }) {
     const auth = useContext(AuthContext)
-    const {request} = useHttp();
-    const [form, setForm] = useState({title: title, date: date})
+    const { request } = useHttp();
+    const [form, setForm] = useState({ title: title, date: date })
     const appendHandler = async () => {
         try {
-                const post = await request(`${baseUrl}/posts/`, "PUT", {...form, id: id}, {
-                    'Authorization': `Bearer ${auth.token}`
-                });
-                setState(false)
-        } catch (error) {
+            const post = await request(`${baseUrl}/posts/`, "PUT", { ...form, id: id }, {
+                'Authorization': `Bearer ${auth.token}`
+            });
             setState(false)
-            
+        } catch (error) {
+            auth.logout();
+            setState(false);
+
         }
     }
     return (
@@ -26,18 +27,18 @@ function EditForm({title, date, state, setState, id}) {
                     <label htmlFor="title">Название</label>
                     <input type="text" placeholder="Название"
                         name="title"
-                        onChange={(event) => setForm({...form, [event.target.name]: event.target.value})}
+                        onChange={(event) => setForm({ ...form, [event.target.name]: event.target.value })}
                         value={form.title}
                     />
-                      <label htmlFor="date">Дата</label>
-                    <input name="date" type="datetime-local" 
-                        onInput={(event) => setForm({...form, [event.target.name]: new Date(event.target.value) / 1})}
+                    <label htmlFor="date">Дата</label>
+                    <input name="date" type="datetime-local"
+                        onInput={(event) => setForm({ ...form, [event.target.name]: new Date(event.target.value) / 1 })}
                     />
                     <button onClick={(appendHandler)}>Сохранить</button>
                 </div>
             </div>}
         </div>
-        
+
     )
 }
 
