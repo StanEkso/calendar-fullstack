@@ -1,15 +1,25 @@
 {
   "files": {
-    "main.css": "/calendar-fullstack/static/css/main.3a5f04a6.css",
-    "main.js": "/calendar-fullstack/static/js/main.a6b1330d.js",
+    "main.css": "/calendar-fullstack/static/css/main.92979296.css",
+    "main.js": "/calendar-fullstack/static/js/main.1ec1f832.js",
     "static/js/787.c4e7f8f9.chunk.js": "/calendar-fullstack/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/Montserrat-SemiBold.ttf": "/calendar-fullstack/static/media/Montserrat-SemiBold.04af9a9e62bb4c47bd55.ttf",
+    "static/media/Montserrat-ExtraBold.ttf": "/calendar-fullstack/static/media/Montserrat-ExtraBold.5daafc620ecc802516f9.ttf",
+    "static/media/Montserrat-Medium.ttf": "/calendar-fullstack/static/media/Montserrat-Medium.3a0917345468c959207a.ttf",
+    "static/media/Montserrat-Bold.ttf": "/calendar-fullstack/static/media/Montserrat-Bold.63fae500fdcf19ce83d4.ttf",
+    "static/media/Montserrat-Light.ttf": "/calendar-fullstack/static/media/Montserrat-Light.f0963fd9968fbd54cc35.ttf",
+    "static/media/Montserrat-Regular.ttf": "/calendar-fullstack/static/media/Montserrat-Regular.ac98a5f5ca71180fe293.ttf",
+    "static/media/Montserrat-Black.ttf": "/calendar-fullstack/static/media/Montserrat-Black.1b9fba4a75b89b0dd96a.ttf",
+    "static/media/Montserrat-ExtraLight.ttf": "/calendar-fullstack/static/media/Montserrat-ExtraLight.b70ef3d0e89b27907868.ttf",
+    "static/media/Montserrat-Thin.ttf": "/calendar-fullstack/static/media/Montserrat-Thin.e8ecb9f79ef9cbd2d9a8.ttf",
     "index.html": "/calendar-fullstack/index.html",
-    "main.3a5f04a6.css.map": "/calendar-fullstack/static/css/main.3a5f04a6.css.map",
-    "main.a6b1330d.js.map": "/calendar-fullstack/static/js/main.a6b1330d.js.map",
+    "static/media/close.svg": "/calendar-fullstack/static/media/close.ce399303eee52154358145c397473446.svg",
+    "main.92979296.css.map": "/calendar-fullstack/static/css/main.92979296.css.map",
+    "main.1ec1f832.js.map": "/calendar-fullstack/static/js/main.1ec1f832.js.map",
     "787.c4e7f8f9.chunk.js.map": "/calendar-fullstack/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3a5f04a6.css",
-    "static/js/main.a6b1330d.js"
+    "static/css/main.92979296.css",
+    "static/js/main.1ec1f832.js"
   ]
 }
