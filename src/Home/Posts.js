@@ -11,7 +11,10 @@ function Posts({ admin }) {
         async function getData() {
             const data = await request(`${baseUrl}/posts/`, 'GET');
             data.sort((a,b) => a.date-b.date)
-            setPosts(data)
+            const expired = data.filter(el => el.date < Date.now());
+            const actual = data.filter(el => el.date >= Date.now());
+
+            setPosts(actual.concat(expired))
         }
         getData()
     }, [])

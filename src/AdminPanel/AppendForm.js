@@ -3,6 +3,7 @@ import { useHttp } from "../hooks/http.hook";
 import styles from "./Admin.module.css"
 import { baseUrl } from "../configs/config";
 import { AuthContext } from "../context/AuthContext";
+import closeIcon from '../close.svg';
 function AppendForm({ setModal }) {
     const auth = useContext(AuthContext)
     const {request} = useHttp();
@@ -25,7 +26,8 @@ function AppendForm({ setModal }) {
             <button onClick={() => setState(true)}>Создать событие</button>
             {state && <div className={styles.overlay}>
                 <div className={styles.append}>
-                    <button onClick={() => setState(false)}>Закрыть</button>
+                     <h4>Добавление события</h4>
+                    <button className={styles.exit} onClick={() => setState(false)}><img src={closeIcon}/></button>
                     <label htmlFor="title">Название</label>
                     <input type="text" placeholder="Название"
                         name="title"
