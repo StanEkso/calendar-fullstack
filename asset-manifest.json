@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/calendar-fullstack/static/css/main.2344bd0e.css",
-    "main.js": "/calendar-fullstack/static/js/main.5952e166.js",
+    "main.js": "/calendar-fullstack/static/js/main.ae3cdabf.js",
     "static/js/787.c4e7f8f9.chunk.js": "/calendar-fullstack/static/js/787.c4e7f8f9.chunk.js",
     "static/media/Montserrat-SemiBold.ttf": "/calendar-fullstack/static/media/Montserrat-SemiBold.04af9a9e62bb4c47bd55.ttf",
     "static/media/Montserrat-ExtraBold.ttf": "/calendar-fullstack/static/media/Montserrat-ExtraBold.5daafc620ecc802516f9.ttf",
@@ -15,11 +15,11 @@
     "index.html": "/calendar-fullstack/index.html",
     "static/media/close.svg": "/calendar-fullstack/static/media/close.ce399303eee52154358145c397473446.svg",
     "main.2344bd0e.css.map": "/calendar-fullstack/static/css/main.2344bd0e.css.map",
-    "main.5952e166.js.map": "/calendar-fullstack/static/js/main.5952e166.js.map",
+    "main.ae3cdabf.js.map": "/calendar-fullstack/static/js/main.ae3cdabf.js.map",
     "787.c4e7f8f9.chunk.js.map": "/calendar-fullstack/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2344bd0e.css",
-    "static/js/main.5952e166.js"
+    "static/js/main.ae3cdabf.js"
   ]
 }
