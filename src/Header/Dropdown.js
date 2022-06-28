@@ -10,8 +10,9 @@ function Dropdown({ state }) {
             <ul>
                 <li><Link to='/'>На главную</Link></li>
                 <li><Link to='/admin'>Администрирование</Link></li>
+                <li><Link to='/views'>Просмотренные посты</Link></li>
+                
                 <li><Link to='/' onClick={auth.logout}>Выход</Link></li>
-
             </ul>
         </div>
     )

@@ -1,8 +1,8 @@
 import React, {useEffect, useState } from "react";
 import { useHttp } from "../hooks/http.hook";
+import { baseUrl } from "../configs/config";
 import Card from "./Card";
 import styles from "./Home.module.css"
-import { baseUrl } from "../configs/config";
 function Posts({ admin }) {
     const { request, loading } = useHttp();
 
